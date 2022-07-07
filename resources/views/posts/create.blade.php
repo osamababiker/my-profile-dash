@@ -19,9 +19,15 @@
             <!-- General Form Elements -->
             <form>
             <div class="row mb-3">
-                <label for="title" class="col-sm-2 col-form-label">Post Title</label>
+                <label for="arTitle" class="col-sm-2 col-form-label">Post Arabic Title</label>
                 <div class="col-sm-10">
-                <input id="title" type="text" class="form-control">
+                <input id="arTitle" name="arTitle" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="enTitle" class="col-sm-2 col-form-label">Post English Title</label>
+                <div class="col-sm-10">
+                <input id="enTitle" name="enTitle" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
@@ -37,16 +43,32 @@
             </div>
 
             <div class="row mb-3">
-                <label for="summery" class="col-sm-2 col-form-label">Post Summery</label>
+                <label for="arSummery" class="col-sm-2 col-form-label">Post Arabic Summery</label>
                 <div class="col-sm-10">
-                <textarea id="summery" class="form-control" style="height: 100px"></textarea>
+                <textarea id="arSummery" name="arSummery" class="form-control" style="height: 100px"></textarea>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="summery" class="col-sm-2 col-form-label">Post Summery</label>
+                <label for="enSummery" class="col-sm-2 col-form-label">Post English Summery</label>
                 <div class="col-sm-10">
-                <textarea class="tinymce-editor">
+                <textarea id="enSummery" name="enSummery" class="form-control" style="height: 100px"></textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="arContent" class="col-sm-2 col-form-label">Post Arabic Content</label>
+                <div class="col-sm-10">
+                <textarea id="arContent" name="arContent" class="tinymce-editor">
+                    
+                </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="enContent" class="col-sm-2 col-form-label">Post English Content</label>
+                <div class="col-sm-10">
+                <textarea id="enContent" name="enContent" class="tinymce-editor">
                     
                 </textarea>
                 </div>
