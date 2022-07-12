@@ -11,10 +11,12 @@ const submitPost = document.querySelector('#submitPost');
 submitPost.addEventListener('click', function() {
     const arContent = tinymce.get("arContent").getContent();
     const enContent = tinymce.get("enContent").getContent();
-
+    let published = 0;
+    isPublished.checked ? published = 1 : '';
     $.ajax({
-        url: "/posts/store",
-        method: "post",
+        url: "/posts",
+        type: "POST",
+        dataType: 'JSON',
         data: {
             "arTitle": arTitle.value,
             "enTitle": enTitle.value,
@@ -23,12 +25,12 @@ submitPost.addEventListener('click', function() {
             "subOf": subOf.value,
             "arSummery": arSummery.value,
             "enSummery": enSummery.value,
-            "isPublished": isPublished.checked,
+            "isPublished": published,
             "_token": csrf_token
         },
         success: function(response) {
             console.log(response.data);
             //location.reload();
-        }
+        } 
     });
 });
