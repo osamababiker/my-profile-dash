@@ -15,7 +15,16 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('arName');
+            $table->string('enName');
+            $table->unsignedBigInteger('subOf')->nullable();
+
+            $table->foreign('subOf')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

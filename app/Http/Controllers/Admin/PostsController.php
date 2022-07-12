@@ -8,17 +8,11 @@ class PostsController extends Controller
 {
 
     public function index(){
-        return view('posts/index');
+        return view('admin/posts/index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('admin/posts/create');
     }
 
     /**

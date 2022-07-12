@@ -1,13 +1,13 @@
-@include('components/head')
+@include('admin/components/head')
 
 <body>
 
   <!-- ======= Header ======= -->
-  @include('components/nav')
+  @include('admin/components/nav')
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-  @include('components/sidebar')
+  @include('admin/components/sidebar')
   <!-- End Sidebar-->
 
   <main id="main" class="main">
@@ -162,6 +162,6 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  @include('components/footer')
+  @include('admin/components/footer')
   <!-- End Footer -->
 

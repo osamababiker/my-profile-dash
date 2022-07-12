@@ -1,17 +1,17 @@
-@include('components.head')
+@include('admin/components/head')
 
 <body>
 
   <!-- ======= Header ======= -->
-  @include('components.nav')
+  @include('admin/components/nav')
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-  @include('components.sidebar')
+  @include('admin/components/sidebar')
   <!-- End Sidebar-->
 
   <main id="main" class="main">
-
+ 
     <section class="section">
         <div class="card">
         <div class="card-body">
@@ -31,9 +31,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="category" class="col-sm-2 col-form-label">Post Category</label>
+                <label for="subOf" class="col-sm-2 col-form-label">Post Category</label>
                 <div class="col-sm-10">
-                <select id="category" class="form-select" aria-label="Default select example">
+                <select id="subOf" class="form-select" aria-label="Default select example">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -75,9 +75,9 @@
             </div>
 
             <div class="row mb-3 mt-4">
-                <label class="form-check-label col-sm-2" for="published">Published</label>
+                <label class="form-check-label col-sm-2" for="isPublished">Published</label>
                 <div class="col-sm-10 form-check form-switch">
-                    <input class="form-check-input" name="published" type="checkbox" id="published" checked>
+                    <input class="form-check-input" name="isPublished" type="checkbox" id="isPublished" checked>
                 </div>
             </div>
 
@@ -96,4 +96,4 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  @include('components/footer')
+  @include('admin/components/footer')

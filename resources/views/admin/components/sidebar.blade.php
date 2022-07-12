@@ -15,17 +15,17 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="{{ route('categories.create') }}">
               <i class="bi bi-circle"></i><span>Category Form</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
+            <a href="{{ route('posts.create') }}">
               <i class="bi bi-circle"></i><span>Post Editors</span>
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
+            <a href="#">
               <i class="bi bi-circle"></i><span>Setting Form</span>
             </a>
           </li>
@@ -38,12 +38,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="{{ route('categories.index') }}">
               <i class="bi bi-circle"></i><span>Categories Tables</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
+            <a href="{{ route('posts.index') }}">
               <i class="bi bi-circle"></i><span>Post Tables</span>
             </a>
           </li>

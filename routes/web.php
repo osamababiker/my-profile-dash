@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\PostsController;
@@ -16,17 +17,31 @@ use App\Http\Controllers\Admin\SettingsController;
 |
 */
 
-// Route::middleware(['first', 'second'])->group(function () {
+Route::get('/login',[AuthController::class, 'showLogin'])->name('login')->middleware('guest');
+Route::get('/register',[AuthController::class, 'showRegister'])->name('register')->middleware('guest');
+Route::post('/login',[AuthController::class, 'login']);
+Route::post('/register',[AuthController::class, 'register']);
+Route::middleware('auth')->group(function () {
+    Route::post('/logout',[AuthController::class, 'logout'])->name('logout');
+});
+
+Route::get('/forbiden', function() {
+    return view('admin/auth/forbidden');
+});
+
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/', [HomeController::class, 'index']);
+
+    Route::resource('categories', CategoriesController::class)->except(['update', 'delete']);
+    Route::post('categories/destroy', [CategoriesController::class, 'destroy'])
+    ->name('categories.destroy');
+    Route::post('categories/update', [CategoriesController::class, 'update'])
+    ->name('categories.update');
     
-// });
+    Route::resource('posts', PostsController::class)->except([
+        'update', 'delete'
+    ]); 
+});
 
 
-Route::get('/', [HomeController::class, 'index']);
-
-Route::resource('categories', CategoriesController::class)->except([
-    'update', 'delete'
-]);
-
-Route::resource('posts', PostsController::class)->except([
-    'update', 'delete'
-]);
