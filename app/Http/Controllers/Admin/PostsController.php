@@ -3,71 +3,59 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostsRequest;
+use App\Models\Category;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
 
     public function index(){
-        return view('admin/posts/index');
+        $posts = Post::get();
+        return view('admin/posts/index', compact(['posts']));
     }
 
     public function create(){
-        return view('admin/posts/create');
+        $categories = Category::get();
+        return view('admin/posts/create', compact(['categories']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(PostsRequest $request){
+        $post = new Post();
+        $post->arTitle = $request->arTitle;
+        $post->enTitle = $request->enTitle;
+        $post->subOf = $request->subOf;
+        $post->arSummery = $request->arSummery;
+        $post->enSummery = $request->enSummery;
+        $post->arContent = $request->arContent;
+        $post->enContent = $request->enContent;
+        $post->isPublished = $request->isPublished;
+        $post->save();
+        session()->flash('feedback', 'Post has been created!');
+        return response()->json([
+            'data' => $post
+        ], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function update(Request $request){
+        $post = Post::findOrFail($request->postId);
+        $post->arTitle = $request->arTitle;
+        $post->enTitle = $request->enTitle;
+        $post->subOf = $request->subOf;
+        $post->arSummery = $request->arSummery;
+        $post->enSummery = $request->enSummery;
+        $post->arContent = $request->arContent;
+        $post->enContent = $request->enContent;
+        $post->isPublished = $request->isPublished;
+        $post->save();
+        session()->flash('feedback', 'Post has been updated!');
+        return redirect()->back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request){
+        $post = Post::findOrFail($request->postId);
+        $post->delete();
+        session()->flash('feedback', 'Post has been deleted!');
+        return redirect()->back();
     }
 }

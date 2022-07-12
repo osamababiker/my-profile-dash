@@ -34,10 +34,10 @@
                 <label for="subOf" class="col-sm-2 col-form-label">Post Category</label>
                 <div class="col-sm-10">
                 <select id="subOf" class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Select post category</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->enName }}</option>
+                    @endforeach
                 </select>
                 </div>
             </div>
@@ -83,7 +83,7 @@
 
             <div class="row mb-3 mt-3">
                 <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary">Submit Post</button>
+                <button type="button" id="submitPost" class="btn btn-primary">Submit Post</button>
                 </div>
             </div>
 

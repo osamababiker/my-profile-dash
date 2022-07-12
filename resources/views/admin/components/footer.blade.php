@@ -1,4 +1,5 @@
 
+<script type="text/javascript">var csrf_token = "<?= csrf_token() ?>";</script>
 <!-- Vendor JS Files -->
 <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -11,6 +12,9 @@
 
 <!-- Template Main JS File -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+
+<script src="{{ asset('assets/vendor/jquery/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/js/submitPost.js') }}"></script>
 
 </body>
 
