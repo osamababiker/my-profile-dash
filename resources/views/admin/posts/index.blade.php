@@ -15,10 +15,21 @@
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
-
+ 
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Posts DataTable</h5>
+
+              @if(session()->has('feedback'))
+                  <div class="alert alert-success alert-dismissible" id="successAlert" role="alert">
+                      <div class="alert-message">
+                          <strong> {{session()->get('feedback')}}
+                      </div>
+                  </div>
+              @endif
+              @if($errors->any())
+                  {!! implode('', $errors->all('<div class="alert alert-warning">:message</div>')) !!}
+              @endif
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
@@ -32,49 +43,25 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($posts as $post)
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Keep kissing your product</td>
-                    <td>Designe</td>
+                    <th scope="row">{{ $post->id }}</th>
+                    <td>{{ $post->enTitle }}</td>
+                    <td>{{ $post->category->enName }}</td>
                     <td>
-                        <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#basicModal" >
-                            <i class="bi bi-three-dots"></i>
-                        </a>
+                      <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delete_{{ $post->id }}" >
+                        <i class="bi bi-trash-fill"></i>
+                      </a>
+                      <a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn" target="_blank">
+                        <i class="bi bi-pencil-square"></i>
+                      </a>
                     </td>
-                    <td>2022-07-06</td>
+                    <td>{{ $post->created_at->diffForHumans() }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Timy project</td>
-                    <td>Mobile app</td>
-                    <td>
-                        <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#basicModal" >
-                            <i class="bi bi-three-dots"></i>
-                        </a>
-                    </td>
-                    <td>2022-07-06</td>
-                  </tr>
+                  @include('admin/posts/modals/delete')
+                  @endforeach
                 </tbody>
               </table>
-              
-
-              <!-- Post Summery Modal -->
-              <div class="modal fade" id="basicModal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Post summery</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                    </div>
-                </div>
-                </div><!-- End Post Summery Modal-->
 
             </div>
           </div>

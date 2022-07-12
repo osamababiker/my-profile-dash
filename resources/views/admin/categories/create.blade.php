@@ -14,7 +14,7 @@
 
     <section class="section">
         <div class="card">
-        <div class="card-body">
+        <div class="card-body"> 
             <h5 class="card-title">Post new category</h5>
             @if(session()->has('feedback'))
                 <div class="alert alert-success alert-dismissible" id="successAlert" role="alert">

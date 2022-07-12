@@ -12,7 +12,7 @@ class PostsController extends Controller
 
     public function index(){
         $posts = Post::get();
-        return view('admin/posts/index', compact(['posts']));
+        return view('admin/posts/index', compact(['posts'])); 
     }
 
     public function create(){
@@ -35,6 +35,12 @@ class PostsController extends Controller
         return response()->json([
             'data' => $post
         ], 201);
+    }
+
+    public function edit($id){
+        $post = Post::findOrFail($id);
+        $categories = Category::get();
+        return view('admin/posts/edit', compact(['post','categories']));
     }
 
     public function update(Request $request){

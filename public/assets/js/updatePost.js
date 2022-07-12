@@ -6,7 +6,7 @@ const arSummery = document.querySelector('#arSummery');
 const enSummery = document.querySelector('#enSummery');
 const isPublished = document.querySelector('#isPublished');
 const submitPost = document.querySelector('#submitPost');
-
+const postId = document.querySelector('#postId');
 
 submitPost.addEventListener('click', function() {
     const arContent = tinymce.get("arContent").getContent();
@@ -14,10 +14,11 @@ submitPost.addEventListener('click', function() {
     let published = 0;
     isPublished.checked ? published = 1 : '';
     $.ajax({
-        url: "/posts",
+        url: "/posts/update",
         type: "POST",
         dataType: 'JSON',
         data: {
+            "postId": postId,
             "arTitle": arTitle.value,
             "enTitle": enTitle.value,
             "arContent": arContent,

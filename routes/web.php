@@ -33,15 +33,19 @@ Route::get('/forbiden', function() {
 Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/', [HomeController::class, 'index']);
 
+    // categories routes
     Route::resource('categories', CategoriesController::class)->except(['update', 'delete']);
     Route::post('categories/destroy', [CategoriesController::class, 'destroy'])
     ->name('categories.destroy');
     Route::post('categories/update', [CategoriesController::class, 'update'])
     ->name('categories.update');
     
-    Route::resource('posts', PostsController::class)->except([
-        'update', 'delete'
-    ]); 
+    // posts routes
+    Route::resource('posts', PostsController::class)->except(['update', 'delete']); 
+    Route::post('posts/destroy', [PostsController::class, 'destroy'])
+    ->name('posts.destroy');
+    Route::post('posts/update', [PostsController::class, 'update'])
+    ->name('posts.update');
 });
 
 

@@ -15,7 +15,17 @@
     <section class="section">
         <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Post new blog</h5>
+            <h5 class="card-title">Post new blog</h5> 
+            @if(session()->has('feedback'))
+                <div class="alert alert-success alert-dismissible" id="successAlert" role="alert">
+                    <div class="alert-message">
+                        <strong> {{session()->get('feedback')}}
+                    </div>
+                </div>
+            @endif
+            @if($errors->any())
+                {!! implode('', $errors->all('<div class="alert alert-warning">:message</div>')) !!}
+            @endif
             <!-- General Form Elements -->
             <form>
             <div class="row mb-3">
@@ -96,4 +106,5 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
+  <script src="{{ asset('assets/js/submitPost.js') }}"></script>
   @include('admin/components/footer')
