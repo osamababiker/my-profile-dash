@@ -13,21 +13,23 @@ submitPost.addEventListener('click', function() {
     const enContent = tinymce.get("enContent").getContent();
     let published = 0;
     isPublished.checked ? published = 1 : '';
+    let formData = {
+        "arTitle": arTitle.value,
+        "enTitle": enTitle.value,
+        "arContent": arContent,
+        "enContent": enContent,
+        "subOf": subOf.value,
+        "arSummery": arSummery.value,
+        "enSummery": enSummery.value,
+        "isPublished": published,
+        "_token": csrf_token
+    };
     $.ajax({
         url: "/posts",
         type: "POST",
         dataType: 'JSON',
-        data: {
-            "arTitle": arTitle.value,
-            "enTitle": enTitle.value,
-            "arContent": arContent,
-            "enContent": enContent,
-            "subOf": subOf.value,
-            "arSummery": arSummery.value,
-            "enSummery": enSummery.value,
-            "isPublished": published,
-            "_token": csrf_token
-        },
+        contentType : 'application/json',
+        data: JSON.stringify(formData),
         success: function(response) {
             location.reload();
         } 

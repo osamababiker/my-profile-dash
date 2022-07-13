@@ -29,22 +29,22 @@
             <!-- General Form Elements -->
             <form>
             <div class="row mb-3">
-                <label for="arTitle" class="col-sm-2 col-form-label">Post Arabic Title</label>
-                <div class="col-sm-10">
+                <label for="arTitle" class="col-form-label">Post Arabic Title</label>
+                <div class="col-sm-12">
                 <input id="arTitle" name="arTitle" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="enTitle" class="col-sm-2 col-form-label">Post English Title</label>
-                <div class="col-sm-10">
+                <label for="enTitle" class="col-form-label">Post English Title</label>
+                <div class="col-sm-12">
                 <input id="enTitle" name="enTitle" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="subOf" class="col-sm-2 col-form-label">Post Category</label>
-                <div class="col-sm-10">
+                <label for="subOf" class="col-form-label">Post Category</label>
+                <div class="col-sm-12">
                 <select id="subOf" class="form-select" aria-label="Default select example">
-                    <option selected>Select post category</option>
+                    <option value=''></option>
                     @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->enName }}</option>
                     @endforeach
@@ -53,22 +53,22 @@
             </div>
 
             <div class="row mb-3">
-                <label for="arSummery" class="col-sm-2 col-form-label">Post Arabic Summery</label>
-                <div class="col-sm-10">
+                <label for="arSummery" class="col-form-label">Post Arabic Summery</label>
+                <div class="col-sm-12">
                 <textarea id="arSummery" name="arSummery" class="form-control" style="height: 100px"></textarea>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="enSummery" class="col-sm-2 col-form-label">Post English Summery</label>
-                <div class="col-sm-10">
+                <label for="enSummery" class="col-form-label">Post English Summery</label>
+                <div class="col-sm-12">
                 <textarea id="enSummery" name="enSummery" class="form-control" style="height: 100px"></textarea>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="arContent" class="col-sm-2 col-form-label">Post Arabic Content</label>
-                <div class="col-sm-10">
+                <label for="arContent" class="col-form-label">Post Arabic Content</label>
+                <div class="col-sm-12">
                 <textarea id="arContent" name="arContent" class="tinymce-editor">
                     
                 </textarea>
@@ -76,8 +76,8 @@
             </div>
 
             <div class="row mb-3">
-                <label for="enContent" class="col-sm-2 col-form-label">Post English Content</label>
-                <div class="col-sm-10">
+                <label for="enContent" class="col-form-label">Post English Content</label>
+                <div class="col-sm-12">
                 <textarea id="enContent" name="enContent" class="tinymce-editor">
                     
                 </textarea>
@@ -85,8 +85,8 @@
             </div>
 
             <div class="row mb-3 mt-4">
-                <label class="form-check-label col-sm-2" for="isPublished">Published</label>
-                <div class="col-sm-10 form-check form-switch">
+                <label class="form-check-label" for="isPublished">Published</label>
+                <div class="col-sm-12 form-check form-switch">
                     <input class="form-check-input" name="isPublished" type="checkbox" id="isPublished" checked>
                 </div>
             </div>
@@ -106,5 +106,6 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
+  <script type="text/javascript">var csrf_token = "<?= csrf_token() ?>";</script>
   <script src="{{ asset('assets/js/submitPost.js') }}"></script>
   @include('admin/components/footer')

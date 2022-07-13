@@ -30,20 +30,20 @@
             <form method="post" action="{{ route('categories.store') }}">
                 @csrf
             <div class="row mb-3">
-                <label for="arName" class="col-sm-3 col-form-label">Category Arabic Name</label>
-                <div class="col-sm-9">
+                <label for="arName" class="col-form-label">Category Arabic Name</label>
+                <div class="col-sm-12">
                 <input id="arName" name="arName" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="enName" class="col-sm-3 col-form-label">Category English Name</label>
-                <div class="col-sm-9">
+                <label for="enName" class="col-form-label">Category English Name</label>
+                <div class="col-sm-12">
                 <input id="enName" name="enName" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="subOf" class="col-sm-3 col-form-label">Parent Category</label>
-                <div class="col-sm-9">
+                <label for="subOf" class="col-form-label">Parent Category</label>
+                <div class="col-sm-12">
                 <select id="subOf" name="subOf" class="form-select" aria-label="Default select example">
                     <option value='' selected>Select Parent Category</option>
                     @foreach($categories as $category)

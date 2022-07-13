@@ -40,6 +40,7 @@
                     <th scope="col">Category</th>
                     <th scope="col">Summery</th>
                     <th scope="col">Created Date</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,6 +50,12 @@
                     <td>{{ $post->enTitle }}</td>
                     <td>{{ $post->category->enName }}</td>
                     <td>
+                      <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#summery_{{ $post->id }}" >
+                        <i class="bi bi-three-dots"></i>
+                      </a>
+                    </td>
+                    <td>{{ $post->created_at->diffForHumans() }}</td>
+                    <td>
                       <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#delete_{{ $post->id }}" >
                         <i class="bi bi-trash-fill"></i>
                       </a>
@@ -56,8 +63,24 @@
                         <i class="bi bi-pencil-square"></i>
                       </a>
                     </td>
-                    <td>{{ $post->created_at->diffForHumans() }}</td>
                   </tr>
+                  <!-- Message Modal -->
+                  <div class="modal fade" id="summery_{{ $post->id }}" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Post summery</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          {{ $post->enSummery }}
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- End Message Modal-->
                   @include('admin/posts/modals/delete')
                   @endforeach
                 </tbody>

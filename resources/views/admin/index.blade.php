@@ -73,7 +73,7 @@
                       <i class="bi bi-envelope-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+                      <h6>{{ $messages->count() }}</h6>
                     </div>
                   </div>
 
@@ -95,57 +95,44 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Customer</th>
-                        <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Subject</th>
                         <th scope="col">Message</th>
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($messages as $message)
                       <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>+97156593410</td>
-                        <td>u.osamababiker@gmail.com</td>
-                        <td>mobile app</td>
+                        <th scope="row"><a href="#">#{{ $message->id }}</a></th>
+                        <td>{{ $message->userName }}</td>
+                        <td>{{ $message->userEmail }}</td>
+                        <td>{{ $message->subject }}</td>
                         <td>
-                          <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#basicModal" >
+                          <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#message_{{ $message->id }}" >
                             <i class="bi bi-three-dots"></i>
                           </a>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>+97156593410</td>
-                        <td>u.osamababiker@gmail.com</td>
-                        <td>mobile app</td>
-                        <td>
-                          <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#basicModal" >
-                            <i class="bi bi-three-dots"></i>
-                          </a>
-                        </td>
-                      </tr>
+                      <!-- Message Modal -->
+                      <div class="modal fade" id="message_{{ $message->id }}" tabindex="-1">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">{{ $message->userName }} Message</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              {{ $message->content }}
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- End Message Modal-->
+                      @endforeach
                     </tbody>
                   </table>
-
-                  <!-- Message Modal -->
-                  <div class="modal fade" id="basicModal" tabindex="-1">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Osama Message</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!-- End Message Modal-->
 
                 </div>
 

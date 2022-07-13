@@ -1,5 +1,5 @@
 
-<script type="text/javascript">var csrf_token = "<?= csrf_token() ?>";</script>
+
 <!-- Vendor JS Files -->
 <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

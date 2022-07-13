@@ -55,7 +55,9 @@ class PostsController extends Controller
         $post->isPublished = $request->isPublished;
         $post->save();
         session()->flash('feedback', 'Post has been updated!');
-        return redirect()->back();
+        return response()->json([
+            'data' => $post
+        ], 200);
     }
 
     public function destroy(Request $request){
