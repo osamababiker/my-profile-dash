@@ -39,6 +39,8 @@
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
                     <th scope="col">Summery</th>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Created Date</th>
                     <th scope="col">Actions</th>
                   </tr>
@@ -53,6 +55,18 @@
                       <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#summery_{{ $post->id }}" >
                         <i class="bi bi-three-dots"></i>
                       </a>
+                    </td>
+                    <td>
+                      <a target="_blank" href="{{ asset('upload/posts/'. $post->poster) }}">
+                        <img src="{{ asset('upload/posts/'. $post->poster) }}" width="50" height="50" alt="">
+                      </a>
+                    </td>
+                    <td>
+                      @if($post->isPublished == 1)
+                        <i class="bi bi-check" style="color: green"></i>
+                      @else 
+                        <i class="bi bi-x-lg" style="color: red"></i>
+                      @endif
                     </td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
                     <td>

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('arTitle');
             $table->string('enTitle');
             $table->unsignedBigInteger('subOf');
+            $table->string('poster');
             $table->text('arSummery');
             $table->text('enSummery');
             $table->longText('arContent');

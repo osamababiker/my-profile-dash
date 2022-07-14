@@ -22,9 +22,15 @@ class PostsController extends Controller
 
     public function store(PostsRequest $request){
         $post = new Post();
+        if($request->has('poster')){
+            $image = $request->file('poster');
+            $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
+            $image->move(public_path('upload/posts'),$image_name);
+        }
         $post->arTitle = $request->arTitle;
         $post->enTitle = $request->enTitle;
         $post->subOf = $request->subOf;
+        $post->poster = $image_name;
         $post->arSummery = $request->arSummery;
         $post->enSummery = $request->enSummery;
         $post->arContent = $request->arContent;
@@ -45,9 +51,19 @@ class PostsController extends Controller
 
     public function update(Request $request){
         $post = Post::findOrFail($request->postId);
+        if($request->has('poster')){
+            if(file_exists(public_path('upload/poster/'.$post->poster))){
+                unlink(public_path('upload/poster/'.$post->poster));
+            }
+            $image = $request->file('poster');
+            $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
+            $image->move(public_path('upload/posts'),$image_name);
+        }else $image_name = $post->poster;
+   
         $post->arTitle = $request->arTitle;
         $post->enTitle = $request->enTitle;
         $post->subOf = $request->subOf;
+        $post->poster = $image_name;
         $post->arSummery = $request->arSummery;
         $post->enSummery = $request->enSummery;
         $post->arContent = $request->arContent;

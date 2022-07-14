@@ -51,7 +51,12 @@
                 </select>
                 </div>
             </div>
-
+            <div class="row mb-3">
+                <label for="poster" class="col-form-label">Post Poster</label>
+                <div class="col-sm-12">
+                    <input id="poster" class="form-control" name="poster" type="file">
+                </div>
+            </div>
             <div class="row mb-3">
                 <label for="arSummery" class="col-form-label">Post Arabic Summery</label>
                 <div class="col-sm-12">
