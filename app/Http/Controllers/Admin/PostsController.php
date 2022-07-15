@@ -68,7 +68,7 @@ class PostsController extends Controller
         $post->enSummery = $request->enSummery;
         $post->arContent = $request->arContent;
         $post->enContent = $request->enContent;
-        $post->isPublished = $request->isPublished;
+        $post->isPublished = $request->isPublished; 
         $post->save();
         session()->flash('feedback', 'Post has been updated!');
         return response()->json([

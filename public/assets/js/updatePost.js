@@ -17,8 +17,8 @@ submitPost.addEventListener('click', async function() {
 
     let formData = new FormData();    
     formData.append("postId", postId.value);   
-    console.log(poster.files[0])
-    if(poster.files[0] !== undefined)    
+    
+    if(poster.files[0] !== undefined)  
         formData.append("poster", poster.files[0]);
     formData.append("arTitle", arTitle.value);
     formData.append('enTitle', enTitle.value);
@@ -33,6 +33,6 @@ submitPost.addEventListener('click', async function() {
         method: "POST", 
         body: formData
       });    
-    location.reload();
+   // location.reload();
 
 });
