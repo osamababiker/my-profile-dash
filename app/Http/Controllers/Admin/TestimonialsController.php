@@ -9,7 +9,7 @@ class TestimonialsController extends Controller
 {
 
     public function index(){
-        $testimonials = Testimonial::orderBy('id'.'desc')->get();
+        $testimonials = Testimonial::orderBy('id','desc')->get();
         return view('admin.testimonials.index', compact(['testimonials']));
     }
 
@@ -22,7 +22,7 @@ class TestimonialsController extends Controller
         $this->validate($request,[
             'client_name' => 'required|string',
             'client_position' => 'required|string',
-            'client_image' => 'required|file',
+            'client_image' => 'required',
             'client_review' => 'required|string',
         ]);
 

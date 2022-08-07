@@ -27,7 +27,7 @@
                 {!! implode('', $errors->all('<div class="alert alert-warning">:message</div>')) !!}
             @endif
             <!-- General Form Elements -->
-            <form action="{{ route('testimonials.update') }}" method="post">
+            <form action="{{ route('testimonials.update') }}" enctype="multipart/form-data" method="post">
                 @csrf
                 <input type="hidden" name="testimonialId" value="{{ $testimonial->id }}">
             <div class="row mb-3">
@@ -57,7 +57,7 @@
 
             <div class="row mb-3 mt-3">
                 <div class="col-sm-12">
-                <button type="button" id="updateTestimonial" class="btn btn-primary">Update Testimonial</button>
+                <button type="submit" id="updateTestimonial" class="btn btn-primary">Update Testimonial</button>
                 </div>
             </div>
 
