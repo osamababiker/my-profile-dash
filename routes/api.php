@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PostsController; 
+use App\Http\Controllers\Api\TestimonialsController;
 use App\Http\Controllers\Api\ContactController; 
 
 /*
@@ -24,3 +25,5 @@ Route::get('/posts', [PostsController::class, 'index']);
 Route::get('/posts/{id}', [PostsController::class, 'show']);
 
 Route::post('/contact/store', [ContactController::class, 'store']);
+
+Route::get('/testimonials', [TestimonialsController::class, 'index']);

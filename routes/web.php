@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\TestimonialsController;
 use App\Http\Controllers\Admin\SettingsController;
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,13 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     ->name('posts.destroy');
     Route::post('posts/update', [PostsController::class, 'update'])
     ->name('posts.update');
+
+    // testimonials routes
+    Route::resource('testimonials', TestimonialsController::class)->except(['update', 'delete']); 
+    Route::post('testimonials/destroy', [TestimonialsController::class, 'destroy'])
+    ->name('testimonials.destroy');
+    Route::post('testimonials/update', [TestimonialsController::class, 'update'])
+    ->name('testimonials.update');
 
     // contactMessages routes
     Route::resource('contactMessages', ContactController::class)->except(['update', 'delete']); 

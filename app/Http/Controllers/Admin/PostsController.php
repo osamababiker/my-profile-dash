@@ -26,7 +26,7 @@ class PostsController extends Controller
             $image = $request->file('poster');
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
             $image->move(public_path('upload/posts'),$image_name);
-        }
+        } 
         $post->arTitle = $request->arTitle;
         $post->enTitle = $request->enTitle;
         $post->subOf = $request->subOf;

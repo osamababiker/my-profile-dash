@@ -25,6 +25,11 @@
             </a>
           </li>
           <li>
+            <a href="{{ route('testimonials.create') }}">
+              <i class="bi bi-circle"></i><span>Create Testimonial</span>
+            </a>
+          </li>
+          <li>
             <a href="#">
               <i class="bi bi-circle"></i><span>Setting Form</span>
             </a>
@@ -45,6 +50,11 @@
           <li>
             <a href="{{ route('posts.index') }}">
               <i class="bi bi-circle"></i><span>Post Tables</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('testimonials.index') }}">
+              <i class="bi bi-circle"></i><span>Testimonials Tables</span>
             </a>
           </li>
           <li>
