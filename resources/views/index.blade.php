@@ -20,7 +20,7 @@
         <div class="col-lg-12">
           <div class="row">
 
-            <!-- Sales Card -->
+            <!-- Sales Card --> 
             <div class="col-xxl-4 col-md-4">
               <div class="card info-card sales-card">
 
