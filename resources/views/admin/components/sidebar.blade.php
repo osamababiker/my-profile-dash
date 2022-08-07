@@ -47,6 +47,11 @@
               <i class="bi bi-circle"></i><span>Post Tables</span>
             </a>
           </li>
+          <li>
+            <a href="{{ route('contactMessage.index') }}">
+              <i class="bi bi-circle"></i><span>Messages Tables</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Tables Nav -->
 
