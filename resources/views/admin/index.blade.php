@@ -104,8 +104,8 @@
                       @foreach($messages as $message)
                       <tr>
                         <th scope="row"><a href="#">#{{ $message->id }}</a></th>
-                        <td>{{ $message->userName }}</td>
-                        <td>{{ $message->userEmail }}</td>
+                        <td>{{ $message->name }}</td>
+                        <td>{{ $message->email }}</td>
                         <td>{{ $message->subject }}</td>
                         <td>
                           <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#message_{{ $message->id }}" >
@@ -118,11 +118,11 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title">{{ $message->userName }} Message</h5>
+                              <h5 class="modal-title">{{ $message->name }} Message</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                              {{ $message->content }}
+                              {{ $message->message }}
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

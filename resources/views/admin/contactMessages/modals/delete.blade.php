@@ -8,7 +8,7 @@
     </div>
     <div class="modal-body">
        Are you sure you want to delete this message
-       <form id="delete_form_{{ $message->id }}" action="{{ route('messages.destroy') }}" method="message">
+       <form id="delete_form_{{ $message->id }}" method="post" action="{{ route('contactMessages.destroy') }}" method="message">
         @csrf 
         <input type="hidden" name="messageId" value="{{ $message->id }}">
        </form>

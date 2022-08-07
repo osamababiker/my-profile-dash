@@ -48,7 +48,7 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('contactMessage.index') }}">
+            <a href="{{ route('contactMessages.index') }}">
               <i class="bi bi-circle"></i><span>Messages Tables</span>
             </a>
           </li>

@@ -77,7 +77,7 @@
                       </div>
                     </div>
                   </div><!-- End Message Modal-->
-                  @include('admin/messages/modals/delete')
+                  @include('admin/contactMessages/modals/delete')
                   @endforeach
                 </tbody>
               </table>

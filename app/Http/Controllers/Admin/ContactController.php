@@ -10,7 +10,7 @@ class ContactController extends Controller
     
     public function index(){
         $messages = ContactMessage::orderBy('id','desc')->get();
-        return view('admin.contactMessages', compact(['messages']));
+        return view('admin.contactMessages.index', compact(['messages']));
     }
 
     public function destroy(Request $request){
