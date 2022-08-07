@@ -15,7 +15,22 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('arTitle');
+            $table->string('enTitle');
+            $table->unsignedBigInteger('subOf');
+            $table->string('poster');
+            $table->text('arSummery');
+            $table->text('enSummery');
+            $table->longText('arContent');
+            $table->longText('enContent');
+            $table->boolean('isPublished');
+
+            $table->foreign('subOf')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
