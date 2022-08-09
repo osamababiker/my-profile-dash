@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/posts', [PostsController::class, 'index']);
-Route::get('/posts/{id}', [PostsController::class, 'show']);
+Route::get('/posts/{slug}', [PostsController::class, 'show']);
 
 Route::post('/contact/store', [ContactController::class, 'store']);
 

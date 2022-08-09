@@ -13,8 +13,8 @@ class PostsController extends Controller
         return response()->json($posts,200);
     }
 
-    public function show($id){
-        $post = Post::findOrFail($id);
+    public function show($slug){
+        $post = Post::where('slug', $slug)->first();
         return response()->json($post, 200);
     } 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Requests\PostsRequest;
 use App\Models\Category;
 use App\Models\Post;
@@ -27,6 +28,7 @@ class PostsController extends Controller
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
             $image->move(public_path('upload/posts'),$image_name);
         } 
+        $post->slug = Str::slug($request->enTitle);
         $post->arTitle = $request->arTitle;
         $post->enTitle = $request->enTitle;
         $post->subOf = $request->subOf;
