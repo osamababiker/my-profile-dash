@@ -30,7 +30,7 @@ class TestimonialsController extends Controller
             $image = $request->file('client_image');
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
             $image->move(public_path('upload/testimonials'),$image_name);
-        } 
+        }
 
         $testimonial = new Testimonial();
         $testimonial->client_name = $request->client_name;
@@ -46,7 +46,7 @@ class TestimonialsController extends Controller
 
     public function edit($id){
         $testimonial = Testimonial::findOrFail($id);
-        return view('admin.testimonials.edit', ['testimonial']);
+        return view('admin.testimonials.edit', compact(['testimonial']));
     }
 
 
@@ -62,7 +62,7 @@ class TestimonialsController extends Controller
             if(file_exists(public_path('upload/testimonials/'.$testimonial->client_image))){
                 unlink(public_path('upload/testimonials/'.$testimonial->client_image));
             }
-            $image = $request->file('testimonials');
+            $image = $request->file('client_image');
             $image_name = time().'_'. rand(1000, 9999). '.' .$image->extension();
             $image->move(public_path('upload/testimonials'),$image_name);
         }else $image_name = $testimonial->client_image;
